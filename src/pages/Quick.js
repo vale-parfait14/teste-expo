@@ -1047,11 +1047,12 @@ const Quick = ({ isModal = false }) => {
               <h5 className="card-title">Contact rapide</h5>
               <div className="d-flex align-items-center">
                 <FontAwesomeIcon icon={faPhone} className="text-primary me-3" />
-                <a href="tel:+33123456789" className="text-decoration-none">01 23 45 67 89</a>
+                <a href="tel:+33123456789" className="text-decoration-none">(+221) 338258058</a>
               </div>
               <div className="d-flex align-items-center">
                 <FontAwesomeIcon icon={faMapMarkerAlt} className="text-primary me-3" />
-                <address className="mb-0">123 Avenue de la Vision, 75000 Paris</address>
+                33 rue D x avenue Aime Cesaire, fann résidence – Dakar – Sénégal
+                <address className="mb-0"></address>
               </div>
             </div>
           </div>
@@ -1821,3 +1822,4 @@ const Quick = ({ isModal = false }) => {
 };
 
 export default Quick;
+
