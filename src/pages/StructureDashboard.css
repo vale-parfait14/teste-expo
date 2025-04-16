@@ -1,0 +1,941 @@
+/* Styles pour le dashboard */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Styles pour la sidebar */
+  .sidebar {
+    width: 250px;
+    background-color: #343a40;
+    color: white;
+    transition: all 0.3s;
+    z-index: 1000;
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+  }
+  
+  .sidebar.collapsed {
+    width: 60px;
+  }
+  
+  .sidebar-header {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .sidebar-menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .sidebar-menu li {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+  }
+  
+  .sidebar-menu li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar-menu li.active {
+    background-color: #007bff;
+  }
+  
+  .sidebar-menu li span {
+    margin-left: 10px;
+    white-space: nowrap;
+  }
+  
+  .sidebar-menu .badge {
+    position: absolute;
+    right: 15px;
+  }
+  
+  /* Styles pour le contenu principal */
+  .main-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 20px;
+    transition: all 0.3s;
+  }
+  
+  .main-content.expanded {
+    margin-left: 60px;
+  }
+  
+  .content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .content-body {
+    margin-bottom: 30px;
+  }
+  
+  /* Styles pour les cartes */
+  .hover-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Styles pour le calendrier */
+  .calendar-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+  
+  .calendar-cell {
+    min-height: 100px;
+    border: 1px solid #dee2e6;
+    padding: 5px;
+    position: relative;
+  }
+  
+  .calendar-cell.header {
+    min-height: auto;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .calendar-cell.other-month {
+    background-color: #f8f9fa;
+    color: #adb5bd;
+  }
+  
+  .calendar-cell.has-events {
+    background-color: #e9f5ff;
+    cursor: pointer;
+  }
+  
+  .calendar-cell.has-events:hover {
+    background-color: #d0e8ff;
+  }
+  
+  .date-number {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-weight: bold;
+  }
+  
+  .event-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  /* Styles pour les rendez-vous */
+  .rdv-list {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .rdv-item {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    border-left: 5px solid #007bff;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .rdv-item:hover {
+    background-color: #e9ecef;
+  }
+  
+  .rdv-item.dragging {
+    opacity: 0.5;
+  }
+  
+  .rdv-time {
+    font-weight: bold;
+  }
+  
+  .rdv-patient {
+    color: #495057;
+  }
+  
+  .rdv-status {
+    margin-top: 5px;
+  }
+  
+  .rdv-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+  }
+  
+  /* Styles pour les statuts de rendez-vous */
+  .status-planifié {
+    border-left-color: #6c757d;
+  }
+  
+  .status-confirmé {
+    border-left-color: #28a745;
+  }
+  
+  .status-en-cours {
+    border-left-color: #007bff;
+  }
+  
+  .status-terminé {
+    border-left-color: #20c997;
+  }
+  
+  .status-annulé {
+    border-left-color: #dc3545;
+  }
+  
+  .status-absent {
+    border-left-color: #ffc107;
+  }
+  
+  .status-badge-planifié {
+    background-color: #6c757d;
+  }
+  
+  .status-badge-confirmé {
+    background-color: #28a745;
+  }
+  
+  .status-badge-en-cours {
+    background-color: #007bff;
+  }
+  
+  .status-badge-terminé {
+    background-color: #20c997;
+  }
+  
+  .status-badge-annulé {
+    background-color: #dc3545;
+  }
+  
+  .status-badge-absent {
+    background-color: #ffc107;
+    color: #212529;
+  }
+  
+  /* Responsive */
+  @media (max-width: 999.98px) {
+    .sidebar {
+      width: 60px;
+    }
+    
+    .sidebar.collapsed {
+      margin-left: -60px;
+    }
+    
+    .main-content {
+      margin-left: 60px;
+    }
+    
+    .main-content.expanded {
+      margin-left: 0;
+    }
+  }
+  
+  @media (max-width: 767.98px) {
+    .calendar-cell {
+      min-height: 70px;
+    }
+  }
+  
+  @media (max-width: 575.98px) {
+    .calendar-cell {
+      min-height: 50px;
+    }
+    
+    .date-number {
+      font-size: 0.8rem;
+    }
+    
+    .event-indicator {
+      font-size: 0.7rem;
+    }
+  }
+  
+  /* Styles pour l'interface mobile */
+@media (max-width: 999px) {
+    /* Styles généraux */
+    body {
+      background-color: #fafafa;
+    }
+  
+    .mobile-dashboard {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+  
+    /* Header mobile */
+    .mobile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 56px;
+      padding: 0 16px;
+      background-color: #fff;
+      border-bottom: 1px solid #dbdbdb;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+  
+    /* Menu mobile */
+    .mobile-menu {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #fff;
+      z-index: 999;
+      overflow-y: auto;
+    }
+  
+    /* Contenu principal mobile */
+    .mobile-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      padding-bottom: 72px; /* Pour éviter que le contenu soit caché par la navigation */
+    }
+  
+    /* Navigation mobile style Instagram */
+    .mobile-nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 56px;
+      background-color: #fff;
+      border-top: 1px solid #dbdbdb;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+  
+    .mobile-nav .nav-item {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background: none;
+      border: none;
+      color: #262626;
+      font-size: 1.25rem;
+      padding: 0;
+    }
+  
+    .mobile-nav .nav-item.active {
+      color: #0d6efd;
+    }
+  
+    /* Bouton d'action flottant */
+    .mobile-floating-action {
+      position: fixed;
+      right: 16px;
+      bottom: 72px;
+      z-index: 900;
+    }
+  
+    .btn-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.25rem;
+    }
+  
+    .floating-action-menu {
+      position: absolute;
+      bottom: 64px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 200px;
+    }
+  
+    .btn-action-item {
+      text-align: left;
+      border-radius: 20px;
+      padding: 8px 16px;
+    }
+  
+    /* Styles pour les cartes et éléments de liste */
+    .avatar-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.75rem;
+      margin: 0 auto;
+    }
+  
+    .avatar-small {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+    }
+  
+    .info-item {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+  
+    /* Styles pour le calendrier mobile */
+    .calendar-mobile {
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+  
+    .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      background-color: #f8f9fa;
+    }
+  
+    .calendar-day-header {
+      padding: 8px 0;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+  
+    .calendar-body {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+  
+    .calendar-day {
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border: 1px solid #f0f0f0;
+    }
+  
+    .calendar-day.other-month {
+      color: #ccc;
+    }
+  
+    .date-number {
+      font-size: 0.9rem;
+    }
+  
+    .event-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #0d6efd;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 4px;
+    }
+  
+    /* Styles pour les rendez-vous */
+    .rdv-item-mobile {
+      padding: 8px 0;
+      border-left: 4px solid transparent;
+    }
+  
+    .status-planifié {
+      border-left-color: #ffc107;
+    }
+  
+    .status-confirmé {
+      border-left-color: #0d6efd;
+    }
+  
+    .status-en-cours {
+      border-left-color: #6f42c1;
+    }
+  
+    .status-terminé {
+      border-left-color: #198754;
+    }
+  
+    .status-annulé {
+      border-left-color: #dc3545;
+    }
+  
+    .status-absent {
+      border-left-color: #6c757d;
+    }
+  
+    .status-badge-planifié {
+      background-color: #ffc107;
+      color: #212529;
+    }
+  
+    .status-badge-confirmé {
+      background-color: #0d6efd;
+    }
+  
+    .status-badge-en-cours {
+      background-color: #6f42c1;
+    }
+  
+    .status-badge-terminé {
+      background-color: #198754;
+    }
+  
+    .status-badge-annulé {
+      background-color: #dc3545;
+    }
+  
+    .status-badge-absent {
+      background-color: #6c757d;
+    }
+  
+    .status-indicator {
+      padding: 8px 16px;
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+      margin-bottom: 16px;
+      border-radius: 4px;
+    }
+  
+    .status-planifié.status-indicator {
+      background-color: #ffc107;
+      color: #212529;
+    }
+  
+    .status-confirmé.status-indicator {
+      background-color: #0d6efd;
+    }
+  
+    .status-en-cours.status-indicator {
+      background-color: #6f42c1;
+    }
+  
+    .status-terminé.status-indicator {
+      background-color: #198754;
+    }
+  
+    .status-annulé.status-indicator {
+      background-color: #dc3545;
+    }
+  
+    .status-absent.status-indicator {
+      background-color: #6c757d;
+    }
+  
+    /* Styles pour les formulaires mobiles */
+    .mobile-form {
+      padding-bottom: 16px;
+    }
+  
+    /* Styles pour les vues détaillées */
+    .mobile-detail-view {
+      padding-bottom: 16px;
+    }
+  
+    /* Styles pour les statuts */
+    .status-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+  }
+  
+
+  /* Styles pour les créneaux horaires */
+.time-slots-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.time-slot {
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.time-slot.disponible {
+  background-color: #f8f9fa;
+}
+
+.time-slot.indisponible {
+  background-color: #ffebee;
+  color: #9e9e9e;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.time-slot.selected {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.slot-info {
+  font-size: 10px;
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+/* Pour la version mobile */
+@media (max-width: 768px) {
+  .time-slots-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Styles pour les créneaux horaires */
+.time-slots-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.time-slot {
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.time-slot.disponible {
+  background-color: #f8f9fa;
+}
+
+.time-slot.partiel {
+  background-color: #fff3cd; /* Jaune clair pour indiquer partiellement occupé */
+  color: #856404;
+}
+
+.time-slot.complet {
+  background-color: #ffebee; /* Rouge clair pour indiquer complet */
+  color: #9e9e9e;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.time-slot.selected {
+  background-color: #007bff;
+  color: white !important;
+  border-color: #007bff;
+}
+
+.time-slot.selected .slot-info {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.slot-info {
+  font-size: 10px;
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+/* Pour la version mobile */
+@media (max-width: 768px) {
+  .time-slots-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Styles pour les créneaux horaires */
+.time-slots-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.time-slot {
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+.time-header {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.time-slot.disponible {
+  background-color: #f8f9fa;
+}
+
+.time-slot.partiel {
+  background-color: #fff3cd; /* Jaune clair pour indiquer partiellement occupé */
+  color: #856404;
+}
+
+.time-slot.complet {
+  background-color: #ffebee; /* Rouge clair pour indiquer complet */
+  color: #9e9e9e;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.time-slot.selected {
+  background-color: #007bff;
+  color: white !important;
+  border-color: #007bff;
+}
+
+.time-slot.selected .slot-info {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.slot-info {
+  font-size: 10px;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rdv-numero {
+  font-size: 9px;
+  padding: 2px 4px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+.rdv-numero.current {
+  background-color: rgba(0, 123, 255, 0.2);
+  font-weight: bold;
+}
+
+.complet-text {
+  font-weight: bold;
+  color: #dc3545;
+  margin-bottom: 2px;
+}
+
+/* Pour la version mobile */
+@media (max-width: 768px) {
+  .time-slots-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* Styles pour les demandes rapides */
+.quick-requests-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quick-request-item {
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.quick-request-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.quick-request-details {
+  font-size: 0.9rem;
+}
+
+.quick-request-details p {
+  margin-bottom: 0.5rem;
+}
+
+.badge-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.quick-badge {
+  position: relative;
+  font-size: 0.65rem;
+  padding: 3px 6px;
+  border-radius: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+
+/* Styles pour la vue mobile */
+.mobile-dashboard .quick-request-item {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .quick-requests-preview {
+    gap: 10px;
+  }
+  
+  .quick-request-item {
+    padding: 10px;
+  }
+}
+
+
+/* Style pour les rendez-vous rapides */
+.rdv-item.quick-appointment {
+  border-left: 4px solid #ff9800;
+  background-color: rgba(255, 152, 0, 0.05);
+}
+
+.calendar-cell.has-quick-events {
+  background-color: rgba(255, 152, 0, 0.1);
+}
+
+.event-indicator .badge.quick-badge {
+  background-color: #ff9800;
+}
+
+
+/* Style pour les rendez-vous rapides */
+.rdv-item.quick-appointment {
+  border-left: 4px solid #ff9800;
+  background-color: rgba(255, 152, 0, 0.08);
+}
+
+/* Badge pour les rendez-vous rapides */
+.quick-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 0.7rem;
+}
+
+/* Indicateur dans le calendrier pour les jours avec des rendez-vous rapides */
+.calendar-cell.has-quick-events {
+  background-color: rgba(255, 152, 0, 0.1);
+}
+
+/* Style pour les rendez-vous rapides dans la liste */
+.rdv-item-mobile.quick-appointment {
+  border-left: 4px solid #ff9800;
+}
+
+/* Style pour les rendez-vous rapides */
+.rdv-item.quick-appointment {
+  border-left: 4px solid #ff9800;
+  background-color: rgba(255, 152, 0, 0.08);
+  position: relative;
+}
+
+.rdv-item.quick-appointment::before {
+  content: "Rapide";
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  font-size: 0.65rem;
+  color: #ff9800;
+  font-weight: bold;
+}
+
+/* Badge pour les rendez-vous rapides */
+.quick-badge {
+  background-color: #ff9800 !important;
+}
+
+/* Indicateur dans le calendrier pour les jours avec des rendez-vous rapides */
+.calendar-cell.has-quick-events {
+  background-color: rgba(255, 152, 0, 0.1);
+}
+
+/* Style pour les rendez-vous rapides dans la liste */
+.rdv-item-mobile.quick-appointment {
+  border-left: 4px solid #ff9800;
+}

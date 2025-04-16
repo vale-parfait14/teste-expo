@@ -1,0 +1,45 @@
+.nav-link {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0.5rem 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link.active {
+  color: white;
+  font-weight: 500;
+}
+
+.card {
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.badge {
+  padding: 0.5rem 0.75rem;
+  font-weight: 500;
+}
+
+.btn-outline-primary:hover {
+  color: white;
+}
+
+.modal-content {
+  border-radius: 0.5rem;
+}
+
+@media print {
+  .modal-footer {
+    display: none;
+  }
+}

@@ -1,0 +1,77 @@
+.custom-calendar {
+    width: 100%;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+  }
+  
+  .selected-weeks {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+    min-height: 200px;
+  }
+  
+  .fs-7 {
+    font-size: 0.875rem;
+  }
+  
+  .selected-weeks, .selected-days {
+    background-color: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+  }
+  
+  .availability-details {
+    margin-top: 0.5rem;
+  }
+  
+  .day-item {
+    margin-bottom: 0.5rem;
+  }
+  
+  .weeks-list, .days-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  
+  .patient-item {
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+  }
+  
+  .doctor-details {
+    font-size: 0.9rem;
+  }
+
+  .photo-card {
+    transition: transform 0.3s ease;
+  }
+  
+  .photo-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .photo-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .photo-card:hover .photo-overlay {
+    opacity: 1;
+  }
+  
+  .card-flip {
+    transition: transform 0.3s ease;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  

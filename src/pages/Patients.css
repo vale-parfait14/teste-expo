@@ -1,0 +1,125 @@
+/* Base styles */
+.container {
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+  
+  /* Responsive card grid */
+  .row-cols-1 {
+    --bs-gutter-x: 0.5rem;
+    --bs-gutter-y: 0.5rem;
+  }
+  
+  @media (min-width: 576px) {
+    .container {
+      padding: 1rem;
+    }
+    .row-cols-sm-2 > * {
+      flex: 0 0 auto;
+      width: 50%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      padding: 1.5rem;
+    }
+    .row-cols-lg-3 > * {
+      flex: 0 0 auto;
+      width: 33.333333%;
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    .row-cols-xxl-4 > * {
+      flex: 0 0 auto;
+      width: 25%;
+    }
+  }
+  
+  /* Card styles */
+  .card {
+    height: 100%;
+    transition: transform 0.9s;
+  }
+  
+ 
+  
+  .card-img-top {
+    height: 200px;
+  }
+  
+  @media (max-width: 576px) {
+    .card-img-top {
+      height: 150px;
+    }
+  }
+  
+  /* Form styles */
+  .form-page {
+    display: none;
+    animation: fadeIn 0.3s;
+  }
+  
+  .form-page.active {
+    display: block;
+  }
+  
+  /* Table responsive */
+  .table-responsive {
+    margin: 0 -0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .table th, .table td {
+      white-space: nowrap;
+      min-width: 100px;
+    }
+  }
+  
+  /* Modal responsive */
+  .modal-dialog {
+    margin: 0.5rem;
+    max-width: calc(100% - 1rem);
+  }
+  
+  @media (min-width: 576px) {
+    .modal-dialog {
+      margin: 1.75rem auto;
+      max-width: 90%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .modal-dialog {
+      max-width: 800px;
+    }
+  }
+  
+  /* Utility classes */
+  .img-thumbnail {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .badge {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /*Partie effet des  cartes qui  switch avec poto/info de la liste des patient*/
+  .overflow-auto {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  .overflow-auto::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  

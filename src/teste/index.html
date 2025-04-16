@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayTech Test</title>
+    <link rel="stylesheet" href="https://paytech.sn/cdn/paytech.min.css">
+    <script src="https://paytech.sn/cdn/paytech.min.js"></script>
+</head>
+<body>
+    <button id="payButton" class="buy">Acheter iphone (450000 XOF)</button>
+    <script>
+        function buyRequestToken() {
+            (new PayTech({
+                item_name: "Achat iPhone",
+                item_price: 450000,
+                currency: "XOF",
+                ref_command: `REF-${Date.now()}`,
+                command_name: "Achat iPhone via PayTech",
+                env: "test",
+                ipn_url: "https://paytechs.vercel.app/ipn",
+                success_url: "https://paytechs.vercel.app",
+                cancel_url: "https://paytechs.vercel.app",
+                customer_id: `CLIENT-${Date.now()}`,
+                customer_email: "client@example.com",
+                customer_phone_number: "221777777777",
+                customer_address: "Dakar, Sénégal",
+                customer_city: "Dakar",
+                customer_country: "SN",
+                customer_state: "Dakar",
+                customer_zip_code: "12345"
+            })).withOption({
+                requestTokenUrl: 'https://paytech.sn/api/payment/request-payment',
+                method: 'POST',
+                headers: {
+                    'API_KEY': '0360fc1c628c4527a6035a75d63bbd9ec2ad27da5e56b39be53019a36578c80c',
+                    'API_SECRET': '3f2048b8e427fa67a3a6341bcfe3795abc05cdd68ad101d6f51ebe6734340b9c'
+                },
+                presentationMode: PayTech.OPEN_IN_POPUP
+            }).send();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('payButton').addEventListener('click', buyRequestToken);
+        });
+    </script>
+</body>
+</html>
+

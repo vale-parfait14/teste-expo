@@ -1,0 +1,133 @@
+.quick-appointment-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 15px;
+  }
+  
+  .card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: none;
+  }
+  
+  .card-header {
+    padding: 1.5rem;
+  }
+  
+  .success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(40, 167, 69, 0.1);
+    margin: 0 auto;
+  }
+  
+  .success-icon svg {
+    font-size: 40px;
+  }
+  
+  /* Style pour les champs obligatoires */
+  .form-label span.text-danger {
+    font-weight: bold;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .quick-appointment-container {
+      margin: 1rem auto;
+    }
+    
+    .card-header {
+      padding: 1rem;
+    }
+  }
+
+  .verification-code-container {
+    background-color: #f8f9fa;
+  }
+  
+  .verification-code .code-display {
+    font-family: monospace;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+  }
+  
+  .letter-spacing-2 {
+    letter-spacing: 2px;
+  }
+  
+  .rdv-recap {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .quick-appointment-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .home-options {
+    padding: 1rem 0;
+  }
+  
+  .hover-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+  }
+  
+  .icon-container {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: rgba(13, 110, 253, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .verification-code-container {
+    background-color: #f8f9fa;
+  }
+  
+  .verification-code .code-display {
+    font-family: monospace;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+  }
+  
+  .letter-spacing-2 {
+    letter-spacing: 2px;
+  }
+  
+  .rdv-recap {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .success-icon {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: rgba(25, 135, 84, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
